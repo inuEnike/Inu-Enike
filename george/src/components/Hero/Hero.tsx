@@ -56,10 +56,10 @@ const Hero = () => {
               data-scroll-speed="-5"
             >
               <span className="block w-[20px] md:w-[30px] mr-2 md:mr-5 h-0.5 bg-[#ffffffbe] my-4"></span>
-              <h2 className="">Howdy 👋,</h2>
+              <h2 className="text-[#eee3e3]">Howdy 👋,</h2>
             </div>
             <h2
-              className=""
+              className="text-[#eee3e3]"
               data-scroll
               data-scroll-direction="vertical"
               data-scroll-speed="-5"

@@ -20,11 +20,14 @@ const Contact = () => {
       [e.target.name]: e.target.value,
     });
   };
+  const [loading, setLoading] = React.useState(false);
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     await sendMail(data); // Call the sendMail function
+    setLoading(false);
   };
 
   return (
@@ -100,12 +103,21 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <button
-            type="submit"
-            className="text-center bg-blue-500 w-full py-2 rounded-md"
-          >
-            Submit
-          </button>
+          {loading ? (
+            <button
+              type="submit"
+              className="text-center bg-blue-500 w-full py-2 rounded-md"
+            >
+              Submit
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="text-center bg-blue-500 w-full py-2 rounded-md"
+            >
+              Submit
+            </button>
+          )}
         </form>
       </section>
     </div>
