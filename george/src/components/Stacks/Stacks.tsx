@@ -37,7 +37,7 @@ const Stacks = () => {
       {/* <div className="h-full items-center">|</div> */}
       <div
         className="md:w-[70%] my-5"
-        data-aos="fade-left"
+        data-aos="fade-up"
         data-aos-duration="1300"
         data-aos-delay="300"
         data-aos-easing="ease-in-out"
