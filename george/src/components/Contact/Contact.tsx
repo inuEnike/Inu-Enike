@@ -28,6 +28,15 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     await sendMail(data); // Call the sendMail function
+    //clear the form
+    setData({
+      fullName: "",
+      tel: "",
+      email: "",
+      message: "",
+    });
+
+    // make loading false
     setLoading(false);
   };
 
