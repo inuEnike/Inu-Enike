@@ -22,6 +22,7 @@
 
 body {
   color: var(--foreground);
+  color: #ededed;
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   background-position: center;
