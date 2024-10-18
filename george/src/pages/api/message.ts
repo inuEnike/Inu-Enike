@@ -10,6 +10,10 @@ type Data = {
   error?: any;
 };
 
+export const config = {
+  maxDuration: 60,
+};
+
 const mailHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   try {
     await connectDb();
