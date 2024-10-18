@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import contactImage from "@/assets/virtual-assistant.svg";
 import Image from "next/image";
+import { sendMail, IData } from "@/services/mail.services";
 
 const Contact = () => {
+  const [data, setData] = useState<IData>({
+    fullName: "",
+    tel: "",
+    email: "",
+    message: "",
+  });
+
+  // Handle input changes
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await sendMail(data); // Call the sendMail function
+  };
+
   return (
     <div className="my-16" id="contact">
       <div className="">
@@ -19,15 +43,18 @@ const Contact = () => {
             height={100}
           />
         </div>
-        <form action="" className="w-full my-12 md:flex-1">
+        <form onSubmit={handleSubmit} className="w-full my-12 md:flex-1">
           <div className="flex flex-col w-full">
-            <label htmlFor="full-name">Full Name</label>
+            <label htmlFor="fullName">Full Name</label>
             <input
               type="text"
-              id="full-name"
-              name="full-name"
+              id="fullName"
+              name="fullName"
               placeholder="e.g., John Doe"
+              value={data.fullName}
+              onChange={handleChange}
               className="py-2 px-2 rounded-sm my-3 text-black focus:outline-none"
+              required
             />
           </div>
           <div className="flex items-center flex-col md:flex-row gap-3 mt-5">
@@ -38,7 +65,10 @@ const Contact = () => {
                 id="email"
                 name="email"
                 placeholder="e.g., johndoe@example.com"
+                value={data.email}
+                onChange={handleChange}
                 className="py-2 px-2 rounded-sm my-3 text-black focus:outline-none"
+                required
               />
             </div>
             <div className="flex flex-col w-full">
@@ -48,7 +78,10 @@ const Contact = () => {
                 id="tel"
                 name="tel"
                 placeholder="e.g., +123456789"
+                value={data.tel}
+                onChange={handleChange}
                 className="py-2 px-2 rounded-sm my-3 text-black focus:outline-none"
+                required
               />
             </div>
           </div>
@@ -60,11 +93,17 @@ const Contact = () => {
               cols={50}
               rows={10}
               placeholder="Your message here..."
+              value={data.message}
+              onChange={handleChange}
               className="py-2 px-2 rounded-sm my-3 text-black focus:outline-none"
+              required
             ></textarea>
           </div>
 
-          <button className="text-center bg-blue-500 w-full py-2 rounded-md">
+          <button
+            type="submit"
+            className="text-center bg-blue-500 w-full py-2 rounded-md"
+          >
             Submit
           </button>
         </form>
