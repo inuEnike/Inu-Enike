@@ -12,7 +12,7 @@ import { useLocomotiveScroll } from "react-locomotive-scroll";
 const Hero = () => {
   const { scroll } = useLocomotiveScroll();
 
-  let settings = {
+  const settings = {
     arrows: false,
     dots: false,
     pauseOnHover: false,
