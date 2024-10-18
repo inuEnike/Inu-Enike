@@ -7,7 +7,7 @@ import { schema } from "@/utils/validations";
 type Data = {
   errMessage?: string;
   message?: string;
-  error?: {} | string | [];
+  error?: any;
 };
 
 const mailHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
