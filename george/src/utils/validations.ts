@@ -7,5 +7,5 @@ export const schema = Joi.object({
     tlds: { allow: ["com", "net"] },
   }),
   tel: Joi.number().integer(),
-  message: Joi.string().alphanum().min(3).required(),
+  message: Joi.string().min(3).required(),
 });

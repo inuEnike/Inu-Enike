@@ -19,7 +19,9 @@ const Projects = () => {
         data-aos-delay="300"
         data-aos-easing="ease-in-out"
       >
-        <h2 className="text-4xl">Here are some projects I've worked on.</h2>
+        <h2 className="text-4xl text-white">
+          Here are some projects I've worked on.
+        </h2>
       </div>
       <div className="mt-10 py-10 gap-5 grid sm:grid-cols-2 place-items-center md:grid-cols-2">
         {/* Project 1 */}

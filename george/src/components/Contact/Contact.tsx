@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import contactImage from "@/assets/virtual-assistant.svg";
 import Image from "next/image";
 import { sendMail, IData } from "@/services/mail.services";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Contact = () => {
   const [data, setData] = useState<IData>({
@@ -106,9 +107,9 @@ const Contact = () => {
           {loading ? (
             <button
               type="submit"
-              className="text-center bg-blue-500 w-full py-2 rounded-md"
+              className="text-center flex items-center justify-center bg-blue-500 w-full py-2 rounded-md"
             >
-              Submit
+              <AiOutlineLoading3Quarters size={20} />
             </button>
           ) : (
             <button
