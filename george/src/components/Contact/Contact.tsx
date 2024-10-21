@@ -87,7 +87,7 @@ const Contact = () => {
             <div className="flex flex-col w-full">
               <label htmlFor="tel">Tel</label>
               <input
-                type="tel"
+                type="number"
                 id="tel"
                 name="tel"
                 placeholder="e.g., +123456789"
